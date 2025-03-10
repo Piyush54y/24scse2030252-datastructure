@@ -1,0 +1,44 @@
+Name Piyush Kumar
+roll 24scse2030252
+course mca
+subject data structures
+course code E1PY203B
+
+
+Scenario: Large-Scale Social Network Analysis
+
+Problem:
+
+Imagine a social media platform like Facebook, where there are millions (or even billions) of users, but each user is only connected to a small fraction of other users. If we represent this network as an **adjacency matrix**, where:
+- Each row and column correspond to a user.
+- A value of `1` at position `(i, j)` indicates a friendship between user `i` and user `j`, and `0` otherwise.
+
+For a network with **1 million users**, a **dense adjacency matrix** would require:
+
+\[
+1,000,000 \times 1,000,000 = 10^{12} \text{ elements}
+\]
+
+If stored using a typical `int` (4 bytes per element), this would consume **4 terabytes (TB) of memory**—which is highly inefficient.
+
+Why a Sparse Matrix?
+In reality, most users only have a few hundred or thousand friends, making the matrix **mostly zeros**. Instead of storing all elements, we can use a **sparse matrix representation**, such as:
+- **Compressed Sparse Row (CSR)** format, which only stores nonzero values and their indices.
+- **Adjacency lists**, where each user only maintains a list of their direct friends.
+
+This significantly reduces storage and computational costs. For example, if each user has **1,000 friends on average**, the number of stored elements is:
+
+\[
+1,000,000 \times 1,000 = 10^9 \text{ elements}
+\]
+
+At 4 bytes per element, this only requires 4 GB, a 1,000x reduction** in memory usage.
+
+Computational Benefits:
+- **Faster operations**: Algorithms like **graph traversal (BFS, DFS)** run much faster because they only process nonzero values.
+- **Efficient storage**: Instead of allocating memory for zeros, only relevant connections are stored.
+- **Scalability**: Enables analysis of much larger datasets without excessive memory consumption.
+
+Conclusion:
+
+Using a sparse matrix in this scenario significantly reduces memory usage and computational overhead, making it feasible to analyze massive social networks efficiently.
